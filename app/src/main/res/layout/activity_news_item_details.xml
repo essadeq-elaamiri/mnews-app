@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsItemDetailsActivity">
+    tools:context=".NewsItemDetailsActivity"
+    android:background="@color/smoothBlueGray">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Toolbar
+        android:id="@+id/detailsActToolBare"
+        android:titleTextColor="@color/yellow"
+        android:title="@string/details_act_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/smoothBlueGray"
+         />
+
+    <ScrollView
+        android:id="@+id/scrollBare"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/detailsActToolBare"
+        android:layout_above="@+id/readMoreButton">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/detailsActImageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/detailsActTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailsActImageView"
+                android:padding="15dp"
+                android:textColor="@color/yellow"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                tools:text="Title"></TextView>
+
+            <TextView
+                android:id="@+id/detailsActSubTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailsActTitleTextView"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/whiteMilk"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                tools:text="sub fhfhfh "></TextView>
+
+            <TextView
+                android:id="@+id/detailsActDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailsActSubTitleTextView"
+                android:paddingLeft="15dp"
+                android:textColor="@color/gray"
+                android:textSize="16dp"
+                tools:text="Title"></TextView>
+
+            <TextView
+                android:id="@+id/detailsActContentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailsActDateTextView"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/whiteMilk"
+                android:textSize="16dp"
+                tools:text="Title"></TextView>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/readMoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/read_more_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/darkBlue"
+        android:layout_marginBottom="15dp"
+        />
+
+</RelativeLayout>

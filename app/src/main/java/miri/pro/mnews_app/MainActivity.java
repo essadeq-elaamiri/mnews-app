@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewCatego
 
         // init layouts
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //setting adapters
         newsRecyclerView.setAdapter(recycleViewNewsAdapter);
@@ -77,13 +78,13 @@ public class MainActivity extends AppCompatActivity implements RecycleViewCatego
                 {"all", "business", "entertainment", "general", "health", "science", "sports", "technology" };
         String [] categoriesURLs=
                 {         "https://images.unsplash.com/photo-1646678471872-af73a8ef8ffe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
-                        , "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
-                        , "https://images.unsplash.com/photo-1603739903239-8b6e64c3b185?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
+                        , "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
+                        , "https://images.unsplash.com/photo-1549342902-be005322599a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
                         , "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
-                        , "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
+                        ,"https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
                         , "https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
                         , "https://images.unsplash.com/photo-1484482340112-e1e2682b4856?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
-                        , "https://images.unsplash.com/photo-1596146828740-8a0117f437e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
+                        , "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w={width}&q=80"
                 };
         for (int i=0; i<categoriesNames.length; i++){
             categoryModelList.add(new RecycleViewCategoryModel(categoriesNames[i], categoriesURLs[i].replace("{width}", String.valueOf(200))));
@@ -116,12 +117,27 @@ public class MainActivity extends AppCompatActivity implements RecycleViewCatego
         }
 
         call.enqueue(new Callback<NewsItemModel>() {
-            @Override 
+            @Override
             public void onResponse(Call<NewsItemModel> call, Response<NewsItemModel> response) {
                 NewsItemModel newsItemModel = response.body();
+                Log.d("Body:", ""+response.body().getTotalResults());
+                Log.d("Body2:", ""+ (response.body().getArticles() == null));
                 progressBare.setVisibility(ProgressBar.GONE);
                 // TODO: Attempt to invoke interface method 'java.lang.Object[] java.util.Collection.toArray()' on a null object reference
-                articleModelList.addAll(newsItemModel.getArticlesList());
+                articleModelList.addAll(newsItemModel.getArticles());
+                /*
+                List<ArticleModel> localArticleModelList = newsItemModel.getArticlesList();
+                for(ArticleModel articleModel1: localArticleModelList ){
+                    //String title, String description, String url, String urlToImage, String publishedAt, String content) {
+                    articleModelList.add(new ArticleModel(
+                            articleModel1.getTitle(),
+                            articleModel1.getDescription(),
+                            articleModel1.getUrl(),
+                            articleModel1.getUrlToImage(),
+                            articleModel1.getPublishedAt(),
+                            articleModel1.getContent()));
+                }
+                 */
                 recycleViewNewsAdapter.notifyDataSetChanged();
             }
 

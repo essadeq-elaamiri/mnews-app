@@ -5,12 +5,12 @@ import java.util.List;
 public class NewsItemModel {
     private String status;
     private int totalResults;
-    private List<ArticleModel> articlesList;
+    private List<ArticleModel> articles;
 
-    public NewsItemModel(String status, int totalResults, List<ArticleModel> articlesList) {
+    public NewsItemModel(String status, int totalResults, List<ArticleModel> articles) {
         this.status = status;
         this.totalResults = totalResults;
-        this.articlesList = articlesList;
+        this.articles = articles;
     }
 
     public String getStatus() {
@@ -29,11 +29,11 @@ public class NewsItemModel {
         this.totalResults = totalResults;
     }
 
-    public List<ArticleModel> getArticlesList() {
-        return articlesList;
+    public List<ArticleModel> getArticles() {
+        return articles;
     }
 
-    public void setArticlesList(List<ArticleModel> articlesList) {
-        this.articlesList = articlesList;
+    public void setArticles(List<ArticleModel> articles) {
+        this.articles = articles;
     }
 }
