@@ -1,6 +1,7 @@
 package miri.pro.mnews_app.data;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import miri.pro.mnews_app.NewsItemDetailsActivity;
 import miri.pro.mnews_app.R;
 
 public class RecycleViewNewsAdapter extends RecyclerView.Adapter<RecycleViewNewsAdapter.ViewHolder>{
@@ -42,6 +44,20 @@ public class RecycleViewNewsAdapter extends RecyclerView.Adapter<RecycleViewNews
         Picasso.get().load(article.getUrlToImage()).into(holder.newsItemImageView);
 
         // open a new activity on click
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //passing data to the other activity
+                Intent intent = new Intent(context, NewsItemDetailsActivity.class);
+                intent.putExtra("title", article.getTitle());
+                intent.putExtra("description", article.getDescription());
+                intent.putExtra("urlToImage", article.getUrlToImage());
+                intent.putExtra("content", article.getContent());
+                intent.putExtra("publishedAt", article.getPublishedAt());
+                intent.putExtra("url", article.getUrl());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
