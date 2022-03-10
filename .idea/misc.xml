@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/drawable/btn_background.xml" value="0.171" />
+        <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/drawable/custom_input.xml" value="0.1645" />
+        <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/drawable/date_picker_btn_border.xml" value="0.1645" />
         <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/layout/activity_news_item_details.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/Essadeq/AndroidStudioProjects/mnewsapp/app/src/main/res/layout/categorie_item.xml" value="0.20208333333333334" />
