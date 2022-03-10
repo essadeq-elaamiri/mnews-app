@@ -3,4 +3,7 @@
     <string name="app_title">MNews</string>
     <string name="details_act_title">Article details</string>
     <string name="read_more_btn">Read more ... </string>
+    <string name="search_btn">Search</string>
+    <string name="key_word_search_hint">Search with a key word</string>
+
 </resources>

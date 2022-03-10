@@ -32,11 +32,68 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <RelativeLayout
+        android:id="@+id/filtersContainerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBare"
+        android:background="@color/darkBlue"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <EditText
+            android:id="@+id/searchFilterEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/search_24"
+            android:drawablePadding="5dp"
+            android:hint="@string/key_word_search_hint"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/whiteMilk"
+            android:textColorHint="@color/whiteMilk"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/datePickerButton"
+            style="?android:spinnerStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchFilterEditText"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/date_picker_btn_border"
+            android:drawableEnd="@drawable/date_icon_24"
+            android:onClick="openDatePicker"
+            android:paddingStart="12dp"
+            android:paddingEnd="6dp"
+            android:text="2022-03-10"
+            android:textColor="@color/darkBlue"
+            android:textSize="15dp"></Button>
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/datePickerButton"
+            android:onClick="searchWithFilters"
+            android:text="@string/search_btn"
+            android:textColor="@color/darkBlue"
+            android:background="@drawable/btn_background"></Button>
+
+
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolBare"
+        android:layout_below="@+id/filtersContainerLayout"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/category_item"></androidx.recyclerview.widget.RecyclerView>
