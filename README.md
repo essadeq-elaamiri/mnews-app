@@ -30,7 +30,7 @@ It can filter news by categories, keywords and date.
 ### Home screen
 
 ![Home](/screenshots/home.png).
-<img src="/screenshots/home.png"  width="120" height="auto">
+<img src="/screenshots/home.png"  width="600" height="auto">
 
 ### Entertaiment Category
 
