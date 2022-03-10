@@ -29,29 +29,28 @@ It can filter news by categories, keywords and date.
 
 ### Home screen
 
-![Home](/screenshots/home.png).
-<img src="/screenshots/home.png"  width="600" height="auto">
+<img src="/screenshots/home.png"  width="300" height="auto" style="text-algin:center;">
 
 ### Entertaiment Category
 
-![Entertaiment Category](/screenshots/category_entertaiment.png).
+<img src="/screenshots/category_entertaiment.png"  width="300" height="auto">
 
 ### Technology Category
 
-![Entertaiment Category](/screenshots/technology.png).
+<img src="/screenshots/technology.png"  width="300" height="auto">
 
 ### To article details
 
-![Article details](/screenshots/article_dtails.png).
+<img src="/screenshots/article_dtails.png"  width="300" height="auto">
 
 ### To article on the web (To the browser)
 
-![To the web](/screenshots/tothebrowser.png).
+<img src="/screenshots/tothebrowser.png"  width="300" height="auto">
 
 ### Using keywords
 
-![Keyword search](/screenshots/using_key_word.png).
+<img src="/screenshots/using_key_word.png"  width="300" height="auto">
 
 ### 'war' keyword relative articles result
 
-![war](/screenshots/key_word_war.png).
+<img src="/screenshots/key_word_war.png"  width="300" height="auto">
